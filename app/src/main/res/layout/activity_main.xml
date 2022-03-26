@@ -4,15 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:keepScreenOn="true"
     tools:context=".MainActivity">
 
     <RelativeLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        >
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
         <VideoView
+            android:id="@+id/videoView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="16dp"
+            />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
