@@ -1,7 +1,6 @@
 package com.hnit.app;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
                 playVideo();
             }
         });
-
     }
 
     protected void onStart(){
@@ -48,14 +46,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause(){
         super.onPause();
         videoView.pause();
-    }
-
-    protected void onStop(){
-        super.onStop();
-    }
-
-    protected void onDestroy(){
-        super.onDestroy();
     }
 
     protected void onRestart(){
@@ -75,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 Log.d("MainActivity",files[i].toString());
             }
+            Log.d("MainActivity", "size is = " + String.valueOf(videos.size()));
         }
     }
 
@@ -86,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void playVideo(){
         int randIndex = new Random().nextInt(videos.size());
-        Log.d("MainActivity", videos.get(randIndex));
+        Log.d("MainActivity", "要播放的视频路径是 " + videos.get(randIndex));
         videoView.setVideoPath(videos.get(randIndex));
         videoView.start();
     }
