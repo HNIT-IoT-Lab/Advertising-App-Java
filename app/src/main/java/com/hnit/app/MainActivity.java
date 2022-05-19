@@ -15,6 +15,8 @@ import android.widget.RelativeLayout;
 import android.widget.VideoView;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -72,7 +74,14 @@ public class MainActivity extends AppCompatActivity {
         File[] files = downloadDir.listFiles();
         if(files != null){
             for(int i = 0;i < files.length;i++){
-                if(files[i].isFile() && isVideoFile(files[i].toString())){
+                String param = files[i].toString();
+                try {
+                    param = URLEncoder.encode(param, "UTF-8").replaceAll("\\+","%20");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
+                if(files[i].isFile() && isVideoFile(param)){
                     videos.add(files[i].toString());
                 }
                 Log.d("MainActivity",files[i].toString());
