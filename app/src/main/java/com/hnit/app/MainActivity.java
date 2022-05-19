@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
         File[] files = downloadDir.listFiles();
         if(files != null){
             for(int i = 0;i < files.length;i++){
+
+                //消除 中文名视频播放不行 问题
                 String param = files[i].toString();
                 try {
                     param = URLEncoder.encode(param, "UTF-8").replaceAll("\\+","%20");
